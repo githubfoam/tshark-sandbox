@@ -22,7 +22,7 @@ capinfos -TmQ securitynik_kaieteur_falls.pcap >securitynik_kaieteur_falls.csv #g
 stat  securitynik_kaieteur_falls.csv
 
 editcap -F pcapng  -c 20  securitynik_kaieteur_falls.pcap  /tmp/securitynik_kaieteur_falls_split.pcap
-ls -lai /tmp/
+ls -lai /tmp/securitynik_kaieteur_falls_split*.pcap
 # securitynik_kaieteur_falls_split_00000_20190120175303.pcap
 # securitynik_kaieteur_falls_split_0000X_XXXXXXXXXXXXXX.pcap
 # capinfos securitynik_kaieteur_falls_split_0000X_XXXXXXXXXXXXXX.pcap #generate a long form report
@@ -72,7 +72,7 @@ tshark -n -r decode-as-ssh.pcap
 
 sudo apt-get install -yq p7zip-full
 7z e decode-as.7z
-ls -lai 
+ls -lai decode-as*
 tshark -n -r decode-as.pcap
 
 echo "===================================================================================="
