@@ -3,45 +3,42 @@ name: "ubuntu tshark CI workflow"
 
 on:
   push:
-    branches: [ test ]
+    branches: [ main ]
+  schedule:
+      - cron:  '0 0 1 * *' ##execution of a task in the first minute of the month  
+
 
 jobs:
 
-  # ubuntu-1604-job:
-  #   name: "osquery on ubuntu-16.04"
-  #   runs-on: ubuntu-16.04
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name: "os fingerprinting"
-  #     run: hostnamectl status  
-  #   - name: "install osquery"
-  #     run: sudo sh scripts/install_osquery.sh      
-  #   - name: "DFIR osquery list"
-  #     run: sh scripts/dfir_osquery.sh   
+  ubuntu-1604-tshark-job:
+    name: "tshark on ubuntu-16.04"
+    runs-on: ubuntu-16.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status  
+    - name: "deploy tshark"
+      run: make deploy-tshark   
 
-  # ubuntu-1804-job:
-  #   name: "osquery onubuntu-18.04"
-  #   runs-on: ubuntu-18.04
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name: "os fingerprinting"
-  #     run: hostnamectl status  
-  #   - name: "install osquery"
-  #     run: sudo sh scripts/install_osquery.sh      
-  #   - name: "DFIR osquery list"
-  #     run: sh scripts/dfir_osquery.sh   
+  ubuntu-1804-tshark-job:
+    name: "tshark onubuntu-18.04"
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status  
+    - name: "deploy tshark"
+      run: make deploy-tshark 
 
-  # ubuntu-2004-job:
-  #   name: "osquery on ubuntu-20.04"
-  #   runs-on: ubuntu-20.04
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name: "os fingerprinting"
-  #     run: hostnamectl status 
-  #   - name: "install osquery"
-  #     run: sudo sh scripts/install_osquery.sh      
-  #   - name: "DFIR osquery list"
-  #     run: sh scripts/dfir_osquery.sh        
+  ubuntu-2004-tshark-job:
+    name: "tshark on ubuntu-20.04"
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status 
+    - name: "deploy tshark"
+      run: make deploy-tshark     
 
   ubuntu-latest-tshark-job:
     name: "tshark on ubuntu-latest"
