@@ -19,6 +19,9 @@ tshark -r nmap_sn.pcap #read pcap file
 
 tshark -n -r nmap_sn.pcap #Read a pcap, don't resolve names (layers 3 or 4)
 
+# Ping sweep
+# ICMP Type 8 = ECHO Request ICMP Type 0 = ECHO Reply
+tshark -n -r nmap_sn.pcap '(icmp.type == 8) and (icmp.code == 0)'
 
 echo "===================================================================================="
 echo "===================================================================================="
