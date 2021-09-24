@@ -43,14 +43,24 @@ jobs:
   #   - name: "DFIR osquery list"
   #     run: sh scripts/dfir_osquery.sh        
 
+  # ubuntu-latest-tshark-job:
+  #   name: "tshark on ubuntu-latest"
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - name: "os fingerprinting"
+  #     run: hostnamectl status    
+  #   - name: "deploy tshark"
+  #     run: make deploy-tshark
+
   ubuntu-latest-tshark-job:
-    name: "tshark on ubuntu-latest"
+    name: "detection reconnaissance on ubuntu-latest"
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: "os fingerprinting"
       run: hostnamectl status    
-    - name: "deploy tshark"
-      run: make deploy-tshark
+    - name: "detection reconnaissance"
+      run: make detecting_reconnaissance     
 
 
